@@ -36,3 +36,22 @@ build/
 
 ### Mac OS ###
 .DS_Store
+
+# Thư mục IDE
+.idea/
+*.iml
+
+# Thư mục biên dịch
+/bin/
+target/
+
+# File log
+*.log
+
+# File tạm thời
+*.tmp
+*.bak
+
+# File hệ thống
+.DS_Store
+Thumbs.db
