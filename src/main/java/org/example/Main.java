@@ -2,7 +2,8 @@ package org.example;
 
 public class Main {
     public static void main(String[] args) {
-        ArrayUtils arrayUtils = new ArrayUtils();
+        //======================== ARRAY ===========================================================
+//        ArrayUtils arrayUtils = new ArrayUtils();
 
 //        int[] myArray = {3, 6, 5, 2, 3, 6, 3, 1, 5};
 //        System.out.println("Array before sorting:");
@@ -46,19 +47,50 @@ public class Main {
 //            System.out.print(num + " ");
 //        }
 
-        int[] array = {12, 11, 13, 5, 6, 7};
-        System.out.println("Mảng ban đầu:");
-        printArray(array);
+//        int[] array = {12, 11, 13, 5, 6, 7};
+//        System.out.println("Mảng ban đầu:");
+//        printArray(array);
+//
+//        //arrayUtils.mergeSort(array, 0, array.length - 1);
+//        arrayUtils.quickSort(array, 0, array.length - 1);
+//
+//        System.out.println("\nMảng sau khi sắp xếp:");
+//        printArray(array);
 
-        arrayUtils.mergeSort(array, 0, array.length - 1);
+        //======================== LINKED LIST ===========================================================
+        LinkedListUtils linkedListUtils = new LinkedListUtils();
+        Node head = new Node(2);
+        head.next = new Node(3);
+        head.next.next = new Node(4);
+        head.next.next.next = new Node(5);
 
-        System.out.println("\nMảng sau khi sắp xếp:");
-        printArray(array);
+        // Print the original list
+        System.out.println("Original Linked List:");
+        printLinkedList(head);
+
+        // Insert a new node at the front of the list
+        System.out.println(
+                "After inserting Nodes at the front:");
+        int data = 1;
+        head = linkedListUtils.insertAtFront(head, data);
+
+        // Print the updated list
+        printLinkedList(head);
     }
 
     public static void printArray(int[] array) {
         for (int i = 0; i < array.length; ++i) {
             System.out.print(array[i] + " ");
+        }
+        System.out.println();
+    }
+
+    public static void printLinkedList(Node head)
+    {
+        Node curr = head;
+        while (curr != null) {
+            System.out.print(" " + curr.data);
+            curr = curr.next;
         }
         System.out.println();
     }
