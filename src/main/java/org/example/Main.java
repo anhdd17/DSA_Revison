@@ -68,14 +68,28 @@ public class Main {
         System.out.println("Original Linked List:");
         printLinkedList(head);
 
-        // Insert a new node at the front of the list
-        System.out.println(
-                "After inserting Nodes at the front:");
-        int data = 1;
-        head = linkedListUtils.insertAtFront(head, data);
+        //// Insert a new node at the front of the list
+//        System.out.println(
+//                "After inserting Nodes at the front:");
+//        int data = 1;
+//        head = linkedListUtils.insertAtFront(head, data);
+//        // Print the updated list
+//        printLinkedList(head);
 
-        // Print the updated list
+        //// Key: Insert node after key
+        int key = 3, newData = 11;
+
+        // Insert a new node with data 4 after the node
+        // having data 3
+//        head = linkedListUtils.insertAfter(head, key, newData);
+//        System.out.println("Linked List after insertion after insert node having data = 3: ");
+//        printLinkedList(head);
+
+        // Example of appending a node at the end
+        head = linkedListUtils.insertAtEnd(head, 1);
+        System.out.print("\nAfter inserting 1 at the end:");
         printLinkedList(head);
+
     }
 
     public static void printArray(int[] array) {
