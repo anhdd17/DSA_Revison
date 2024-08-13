@@ -89,6 +89,9 @@ public class Main {
         head = linkedListUtils.insertAtEnd(head, 1);
         System.out.print("\nAfter inserting 1 at the end:");
         printLinkedList(head);
+        head = linkedListUtils.deleteNode(head, 2);
+        System.out.println("\nAfter deleting node at the position 2:");
+        printLinkedList(head);
 
     }
 

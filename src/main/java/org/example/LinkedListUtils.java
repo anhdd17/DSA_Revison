@@ -1,6 +1,8 @@
 package org.example;
 
 public class LinkedListUtils {
+
+    // ==================================== INSERTION =====================================================
     public Node insertAtFront(Node head, int new_data){
         Node new_node = new Node(new_data);
         new_node.next = head;
@@ -41,6 +43,7 @@ public class LinkedListUtils {
         return head;
     }
 
+    // ==================================== DELETION =====================================================
     // Function to delete the head node
     public  Node deleteHead(Node head)
     {
@@ -52,15 +55,27 @@ public class LinkedListUtils {
         return head;
     }
 
+    public Node deleteTail(Node head) {
+        if (head == null) return null;
+        if (head.next == null) return null;
+
+        Node secondLast = head;
+        while (secondLast.next.next != null) {
+            secondLast = secondLast.next;
+        }
+
+        secondLast.next = null;
+
+        return head;
+    }
+
     public Node deleteNode(Node head, int position) {
         Node current = head;
         Node previous = null;
 
-        // Base case if linked list is empty
         if (current == null)
             return head;
 
-        // Case 1: Head is to be deleted
         if (position == 1) {
             head = current.next;
             return head;
