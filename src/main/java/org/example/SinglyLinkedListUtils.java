@@ -1,6 +1,6 @@
 package org.example;
 
-public class LinkedListUtils {
+public class SinglyLinkedListUtils {
 
     // ==================================== INSERTION =====================================================
     public Node insertAtFront(Node head, int new_data){
@@ -73,8 +73,7 @@ public class LinkedListUtils {
         Node current = head;
         Node previous = null;
 
-        if (current == null)
-            return head;
+        if (current == null) return head;
 
         if (position == 1) {
             head = current.next;
@@ -97,5 +96,18 @@ public class LinkedListUtils {
 
         return head;
     }
+
+    // ==================================== SEARCHING =====================================================
+    public Node searchNode(Node head, int target){
+        Node current = head;
+        while (current != null){
+            if(current.data == target)
+                return current;
+            current = current.next;
+        }
+        return null;
+    }
+    //===================================== Reversing the Linked List=======================================
+    
 
 }

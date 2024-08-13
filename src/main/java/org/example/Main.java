@@ -58,7 +58,7 @@ public class Main {
 //        printArray(array);
 
         //======================== LINKED LIST ===========================================================
-        LinkedListUtils linkedListUtils = new LinkedListUtils();
+        SinglyLinkedListUtils linkedListUtils = new SinglyLinkedListUtils();
         Node head = new Node(2);
         head.next = new Node(3);
         head.next.next = new Node(4);
@@ -77,7 +77,7 @@ public class Main {
 //        printLinkedList(head);
 
         //// Key: Insert node after key
-        int key = 3, newData = 11;
+        //int key = 3, newData = 11;
 
         // Insert a new node with data 4 after the node
         // having data 3
@@ -90,14 +90,19 @@ public class Main {
         System.out.print("\nAfter inserting 1 at the end:");
         printLinkedList(head);
         head = linkedListUtils.deleteNode(head, 2);
-        System.out.println("\nAfter deleting node at the position 2:");
+        System.out.print("\nAfter deleting node at the position 2:");
         printLinkedList(head);
+        System.out.print("\nAfter deleting tail:");
+        head = linkedListUtils.deleteTail(head);
+        printLinkedList(head);
+        System.out.println("\nSearching node having data = 4:");
+        System.out.println(linkedListUtils.searchNode(head, 4).data);
 
     }
 
     public static void printArray(int[] array) {
-        for (int i = 0; i < array.length; ++i) {
-            System.out.print(array[i] + " ");
+        for (int j : array) {
+            System.out.print(j + " ");
         }
         System.out.println();
     }
