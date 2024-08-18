@@ -63,6 +63,8 @@ public class Main {
         head.next = new Node(3);
         head.next.next = new Node(4);
         head.next.next.next = new Node(5);
+        head.next.next.next.next = new Node(2);
+
 
         // Print the original list
         System.out.println("Original Linked List:");
@@ -95,8 +97,32 @@ public class Main {
         System.out.print("\nAfter deleting tail:");
         head = linkedListUtils.deleteTail(head);
         printLinkedList(head);
-        System.out.println("\nSearching node having data = 4:");
-        System.out.println(linkedListUtils.searchNode(head, 4).data);
+        System.out.print("\nSearching node having data = 4: ");
+        System.out.print(linkedListUtils.searchNode(head, 4).data);
+        System.out.print("\nLinked list after reverse:" );
+        head = linkedListUtils.reverse(head);
+        printLinkedList(head);
+        System.out.print("\nLinked list has loop? " + linkedListUtils.hasCycle(head));
+
+
+        // Create a hard-coded linked list:
+        // 2 -> 4 -> 8 -> 9
+        Node first = new Node(2);
+        first.next = new Node(4);
+        first.next.next = new Node(8);
+        first.next.next.next = new Node(9);
+
+        // Create another hard-coded linked list:
+        // 1 -> 3 -> 8 -> 10
+        Node second = new Node(1);
+        second.next = new Node(3);
+        second.next.next = new Node(8);
+        second.next.next.next = new Node(10);
+
+        Node mergedList = linkedListUtils.mergeSortedList(first, second);
+        System.out.println("\nMerging 2 sorted linked lists:");
+        printLinkedList((mergedList));
+
 
     }
 
