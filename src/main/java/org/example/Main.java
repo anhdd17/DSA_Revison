@@ -123,6 +123,10 @@ public class Main {
         System.out.println("\nMerging 2 sorted linked lists:");
         printLinkedList((mergedList));
 
+        // find middle of linked list
+        System.out.println("The middle of linked list is " + linkedListUtils.findMiddle(mergedList).data);
+
+
 
     }
 

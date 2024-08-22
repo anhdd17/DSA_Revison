@@ -167,5 +167,53 @@ public class SinglyLinkedListUtils {
         // Trả về danh sách kết quả
         return dummy.next;
     }
+    //========================= Find the middle of a linked list =================
+    public Node findMiddle(Node head) {
+        if (head == null) return null;
+        Node slow = head;
+        Node fast = head;
+        while (fast != null && fast.next != null) {
+            slow = slow.next;
+            fast = fast.next.next;
+        }
+        return slow; // 'slow' is now pointing to the middle node
+    }
+    //===================Removing N-th Node from the End==========================
+    public void removeNthFromEnd(int n, Node head) {
+        Node dummy = new Node(0); // Dummy node to simplify edge cases
+        dummy.next = head;
+        Node first = dummy;
+        Node second = dummy;
+
+        // Move first pointer n+1 steps ahead
+        for (int i = 0; i <= n; i++) {
+            first = first.next;
+        }
+
+        // Move both pointers until first reaches the end
+        while (first != null) {
+            first = first.next;
+            second = second.next;
+        }
+
+        // Now, second is pointing to the node before the target node
+        second.next = second.next.next;
+    }
+    //===================== Find node intersection of Two Linked Lists
+    public Node getIntersectionNode(Node headA, Node headB) {
+        if (headA == null || headB == null) return null;
+
+        Node a = headA;
+        Node b = headB;
+
+        // Move through both lists and switch heads when reaching the end
+        while (a != b) {
+            a = (a == null) ? headB : a.next;
+            b = (b == null) ? headA : b.next;
+        }
+
+        // If a == b, then they are intersecting at this node, else it's null
+        return a;
+    }
 
 }
