@@ -1,6 +1,12 @@
-package org.example;
+package org.example.DSA.Arrays;
 
 public class ArrayUtils {
+    public void printArray(int[] array) {
+        for (int j : array) {
+            System.out.print(j + " ");
+        }
+        System.out.println();
+    }
     public void bubbleSort(int arr[]){
             int arrLength = arr.length;
             boolean swapped;
@@ -43,7 +49,6 @@ public class ArrayUtils {
             arr[j + 1] = key;
         }
     }
-
     public int linearSearch(int arr[], int target) {
         for(int i = 0; i < arr.length; i++)
             if(arr[i] == target)
@@ -63,7 +68,6 @@ public class ArrayUtils {
         }
         return -1; // Nếu không tìm thấy phần tử
     }
-
     public void mergeSort(int[] array, int left, int right) {
         if (left < right) {
             int mid = (left + right) / 2;
@@ -76,7 +80,6 @@ public class ArrayUtils {
             merge(array, left, mid, right);
         }
     }
-
     public void merge(int[] array, int left, int mid, int right) {
         // Tính kích thước của hai mảng con
         int n1 = mid - left + 1;
@@ -122,14 +125,12 @@ public class ArrayUtils {
             k++;
         }
     }
-
     void swap(int[] arr, int i, int j)
     {
         int temp = arr[i];
         arr[i] = arr[j];
         arr[j] = temp;
     }
-
     int partition(int[] arr, int low, int high)
     {
         int pivot = arr[high];
@@ -143,7 +144,6 @@ public class ArrayUtils {
         swap(arr, i + 1, high);
         return (i + 1);
     }
-
     public void quickSort(int[] arr, int low, int high)
     {
         if (low < high) {

@@ -1,17 +1,17 @@
-package org.example;
+package org.example.DSA.LinkedList.Singly;
 
 public class SinglyLinkedListUtils {
 
     // ==================================== INSERTION =====================================================
-    public Node insertAtFront(Node head, int new_data){
-        Node new_node = new Node(new_data);
-        new_node.next = head;
-        return new_node;
+    public SinglyNode insertAtFront(SinglyNode head, int new_data){
+        SinglyNode new_Singly_node = new SinglyNode(new_data);
+        new_Singly_node.next = head;
+        return new_Singly_node;
     }
 
-    public Node insertAfter(Node head, int key, int newData)
+    public SinglyNode insertAfter(SinglyNode head, int key, int newData)
     {
-        Node curr = head;
+        SinglyNode curr = head;
         while (curr != null) {
             if (curr.data == key)
                 break;
@@ -21,45 +21,45 @@ public class SinglyLinkedListUtils {
         if (curr == null)
             return head;
 
-        Node newNode = new Node(newData);
-        newNode.next = curr.next;
-        curr.next = newNode;
+        SinglyNode newSinglyNode = new SinglyNode(newData);
+        newSinglyNode.next = curr.next;
+        curr.next = newSinglyNode;
         return head;
     }
 
-    public Node insertAtEnd(Node head, int newData)
+    public SinglyNode insertAtEnd(SinglyNode head, int newData)
     {
-        Node newNode = new Node(newData);
+        SinglyNode newSinglyNode = new SinglyNode(newData);
         if (head == null) {
-            return newNode;
+            return newSinglyNode;
         }
 
-        Node last = head;
+        SinglyNode last = head;
 
         while (last.next != null) {
             last = last.next;
         }
-        last.next = newNode;
+        last.next = newSinglyNode;
         return head;
     }
 
     // ==================================== DELETION =====================================================
     // Function to delete the head node
-    public  Node deleteHead(Node head)
+    public SinglyNode deleteHead(SinglyNode head)
     {
         if (head == null)
             return null;
-        Node temp = head;
+        SinglyNode temp = head;
         head = head.next;
         temp = null;
         return head;
     }
 
-    public Node deleteTail(Node head) {
+    public SinglyNode deleteTail(SinglyNode head) {
         if (head == null) return null;
         if (head.next == null) return null;
 
-        Node secondLast = head;
+        SinglyNode secondLast = head;
         while (secondLast.next.next != null) {
             secondLast = secondLast.next;
         }
@@ -69,9 +69,9 @@ public class SinglyLinkedListUtils {
         return head;
     }
 
-    public Node deleteNode(Node head, int position) {
-        Node current = head;
-        Node previous = null;
+    public SinglyNode deleteNode(SinglyNode head, int position) {
+        SinglyNode current = head;
+        SinglyNode previous = null;
 
         if (current == null) return head;
 
@@ -98,8 +98,8 @@ public class SinglyLinkedListUtils {
     }
 
     // ==================================== SEARCHING =====================================================
-    public Node searchNode(Node head, int target){
-        Node current = head;
+    public SinglyNode searchNode(SinglyNode head, int target){
+        SinglyNode current = head;
         while (current != null){
             if(current.data == target)
                 return current;
@@ -108,12 +108,12 @@ public class SinglyLinkedListUtils {
         return null;
     }
     //===================================== Reversing the Linked List=======================================
-    public Node reverse(Node head){
-        Node previous = null;
-        Node current = head;
+    public SinglyNode reverse(SinglyNode head){
+        SinglyNode previous = null;
+        SinglyNode current = head;
 
         while (current != null) {
-            Node next = current.next;
+            SinglyNode next = current.next;
             current.next = previous;
             previous = current;
             current = next;
@@ -122,10 +122,10 @@ public class SinglyLinkedListUtils {
         return head;
     }
     //===================================== Floyd’s Cycle-Finding Algorithm (Hare-Tortoise algorithm) =======================================
-    public boolean hasCycle(Node head) {
+    public boolean hasCycle(SinglyNode head) {
         if (head == null) return false;
-        Node slow = head;  // Tortoise
-        Node fast = head;  // Hare
+        SinglyNode slow = head;  // Tortoise
+        SinglyNode fast = head;  // Hare
         while (fast != null && fast.next != null) {
             slow = slow.next;
             fast = fast.next.next;
@@ -137,10 +137,10 @@ public class SinglyLinkedListUtils {
     }
 
     //================================= Merge 2 Sorted List ==============================================
-    public  Node mergeSortedList(Node head1, Node head2) {
+    public SinglyNode mergeSortedList(SinglyNode head1, SinglyNode head2) {
         // Tạo node giả để bắt đầu danh sách kết quả
-        Node dummy = new Node(-1);
-        Node current = dummy;
+        SinglyNode dummy = new SinglyNode(-1);
+        SinglyNode current = dummy;
 
         // Duyệt hai danh sách liên kết
         while (head1 != null && head2 != null) {
@@ -168,10 +168,10 @@ public class SinglyLinkedListUtils {
         return dummy.next;
     }
     //========================= Find the middle of a linked list =================
-    public Node findMiddle(Node head) {
+    public SinglyNode findMiddle(SinglyNode head) {
         if (head == null) return null;
-        Node slow = head;
-        Node fast = head;
+        SinglyNode slow = head;
+        SinglyNode fast = head;
         while (fast != null && fast.next != null) {
             slow = slow.next;
             fast = fast.next.next;
@@ -179,11 +179,11 @@ public class SinglyLinkedListUtils {
         return slow; // 'slow' is now pointing to the middle node
     }
     //===================Removing N-th Node from the End==========================
-    public void removeNthFromEnd(int n, Node head) {
-        Node dummy = new Node(0); // Dummy node to simplify edge cases
+    public void removeNthFromEnd(int n, SinglyNode head) {
+        SinglyNode dummy = new SinglyNode(0); // Dummy node to simplify edge cases
         dummy.next = head;
-        Node first = dummy;
-        Node second = dummy;
+        SinglyNode first = dummy;
+        SinglyNode second = dummy;
 
         // Move first pointer n+1 steps ahead
         for (int i = 0; i <= n; i++) {
@@ -200,11 +200,11 @@ public class SinglyLinkedListUtils {
         second.next = second.next.next;
     }
     //===================== Find node intersection of Two Linked Lists
-    public Node getIntersectionNode(Node headA, Node headB) {
+    public SinglyNode getIntersectionNode(SinglyNode headA, SinglyNode headB) {
         if (headA == null || headB == null) return null;
 
-        Node a = headA;
-        Node b = headB;
+        SinglyNode a = headA;
+        SinglyNode b = headB;
 
         // Move through both lists and switch heads when reaching the end
         while (a != b) {
@@ -216,4 +216,14 @@ public class SinglyLinkedListUtils {
         return a;
     }
 
+    // ======================== Traversing ================================
+    public void printLinkedList(SinglyNode head)
+    {
+        SinglyNode curr = head;
+        while (curr != null) {
+            System.out.print(" " + curr.data);
+            curr = curr.next;
+        }
+        System.out.println();
+    }
 }
